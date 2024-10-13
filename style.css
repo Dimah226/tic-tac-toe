@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    font: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Body and Global Styles */
+@media screen and (max-width: 768px) {
+
+.begin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Marker Styles */
+.markers {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.marker {
+    font-family: "Poppins", sans-serif;
+    font-size: 150px;
+    font-weight: 900;
+}
+
+.X {
+    background: linear-gradient(45deg, aqua, dodgerblue, navy);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 10px 5px rgba(46, 46, 227, 0.47);
+}
+
+.O {
+    background: linear-gradient(45deg, #ff9800, #fb8c00, #f57c00);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 10px 5px rgba(219, 91, 11, 0.418);
+}
+
+/* Paragraph Styles */
+.begin p {
+    color: gray;
+    font-weight: 600;
+    font-size: larger;
+    margin-bottom: 3rem;
+}
+
+/* Button Styles */
+.button {
+    width: 170px;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    font-weight: 400;
+    box-shadow: 0 3px 5px rgba(46, 46, 227, 0.47);
+    transition: 0.5s ease;
+}
+
+.button:focus {
+    background: linear-gradient(45deg, aqua, dodgerblue, navy);
+    color: white;
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+/* One-player Styles */
+.one-player,
+.two-player {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-player input,
+.one-player select,
+.two-player input,
+.two-player select {
+    width: 100%;
+    color: aqua;
+    padding: 0.5rem;
+    z-index: 10;
+    border-radius: 4px;
+    
+}
+
+.player-name,
+.level {
+    position: relative;
+    margin-bottom: 5rem;
+    min-width: 100%;
+}
+
+span {
+    position: absolute;
+    top: 0.5rem;
+    z-index: -1;
+    left: 0.5rem;
+    transition: 0.5s ease;
+}
+
+i {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
+    background: gray;
+    transition: 0.5s ease;
+}
+
+input:focus ~ span,
+select:focus ~ span,
+input:valid ~ span,
+select:valid ~ span {
+    transform: translateY(-2rem);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+input:focus ~ i,
+select:focus ~ i,
+input:valid ~ i,
+select:valid ~ i {
+    height: 2.5rem;
+}
+
+.one-player .button,
+.two-player .button {
+    color: black;
+    width: 200px;
+    border-radius: 1.5rem;
+}
+
+.one-player .button:focus,
+.two-player .button:focus {
+    color: white;
+}
+
+input:valid ~ span,
+select:valid ~ span {
+    color: green;
+}
+
+/* Pick side */
+.pick-side {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    margin: 2rem 0;
+    justify-content: space-around;
+}
+
+.pick-side input {
+    border: 2px solid violet;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.radio-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+#pick-x:checked {
+    background:linear-gradient(45deg, aqua, dodgerblue, navy); ; 
+    border-color: blue; 
+    box-shadow: 0 0 1rem black;
+}
+
+#pick-o:checked {
+    background:linear-gradient(45deg, #ff9800, #fb8c00, #f57c00);
+    border-color: orange; 
+    box-shadow: 0 0 1rem black;
+}
+
+.pick-side p {
+    color: gray;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.pick-side p span{
+    position: static;
+}
+
+/* Board */
+.board {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.presentation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+#score {
+    text-align: center;
+    width: 120px;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 3px 5px rgba(46, 46, 227, 0.47);
+    transition: 0.5s ease;
+}
+
+#player-one,
+#player-two {
+    
+    color: gray;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+    text-align: center;
+    white-space: nowrap;         
+}
+
+.board-container {
+    background: grey;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board {
+    position: relative;
+    display: grid;
+    height: 90%;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.cell {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:nth-last-child(-n+3) {
+    border-bottom: none;
+}
+
+.sub-cell {
+    position: relative;
+    border: 2px solid lightgray;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.cell .sub-cell span.mark {
+    z-index: 0;
+    color: rgb(188, 188, 187);
+    text-shadow: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.cell .sub-cell .mark.X.active{
+    background: linear-gradient(45deg, aqua, dodgerblue, navy);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 10px 5px rgba(46, 46, 227, 0.47);
+    z-index: 10;
+}
+
+.cell .sub-cell .mark.O.active{
+    background: linear-gradient(45deg, #ff9800, #fb8c00, #f57c00);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 10px 5px rgba(219, 91, 11, 0.418);
+    z-index: 10;
+}
+
+#player-one.active{
+    border: 2px solid violet;
+    border-radius: 10px;
+}
+
+#player-two.active{
+    border: 2px solid violet;
+    border-radius: 10px;
+}
+
+.board .winner{
+    position: absolute;
+    
+    background: rgba(128, 128, 128, 0.362);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.board .winner span.win{
+    position: static;
+    z-index: 100;
+    font-size: xx-large;
+    font-weight: 800;
+    
+}
+
+}

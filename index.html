@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <script src="./java.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Starting Screen -->
+    <div class="begin" >
+        <div class="markers">
+            <div class="marker X">X</div>
+            <div class="marker O">O</div>
+        </div>
+        <p>Choose your play mode</p>
+        <button type="button" class="button playAi">With AI</button>
+        <button type="button" class="button playFriend">With Friend</button>
+    </div>
+
+    <!-- One Player Mode -->
+    <form class="one-player" style="display: none;">
+        <div class="player-name">
+            <input type="text" id="player-name" required>
+            <span>Your name please</span>
+            <i></i>
+        </div>
+        <div class="level">
+            <select id="difficulty-level" required>
+                <option value="Easy" selected>Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Extreme">Extreme</option>
+            </select>
+            <span>Choose the level</span>
+            <i></i>
+        </div>
+        <input type="submit" class="button level-button" value="Continue">
+    </form>
+
+    <!-- Two Player Mode -->
+    <form class="two-player" style="display: none;">
+        <div class="player-name one">
+            <input type="text" id="player-one-name" required>
+            <span>Player 1 name</span>
+            <i></i>
+        </div>
+        <div class="player-name two">
+            <input type="text" id="player-two-name" required>
+            <span>Player 2 name</span>
+            <i></i>
+        </div>
+        <input type="submit" class="button players" value="Continue">
+    </form>
+
+    <!-- Side Selection -->
+    <form class="pick-side" style="display: none;">
+        <p><span class="player" id="current-player-name">Name</span>, pick your side</p>
+        <div class="radio">
+            <div class="radio-btn">
+                <label for="pick-x" class="marker X">X</label>
+                <input type="radio" id="pick-x" name="selection" value="X" required checked>
+            </div>
+            <div class="radio-btn">
+                <label for="pick-o" class="marker O">O</label>
+                <input type="radio" id="pick-o" name="selection" value="O">
+            </div>
+        </div>
+        <button id="continue-pick-side" class="button choose-side">Continue</button>
+    </form>
+
+    <!-- Game Board -->
+    <div class="board" style="display: none;">
+        <div class="presentation">
+            <div class="player-one-name" id="player-one">Player 1</div>
+            <div class="score" id="score">0 - 0</div>
+            <div class="player-two-name" id="player-two">Player 2</div>
+        </div>
+        <div class="board-container">
+            <div class="game-board">
+                <div class="cell">
+                    <div class="sub-cell" id="0">
+                        <span class="mark X">X</span>
+                        <span class="mark O">O</span>
+                    </div>
+                </div>
+                <div class="cell"><div class="sub-cell" id="1"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="2"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="3"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="4"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="5"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="6"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="7"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+                <div class="cell"><div class="sub-cell" id="8"><span class="mark X">X</span><span class="mark O">O</span></div></div>
+            </div>
+        </div>
+        <button id="quit-game" class="button">Quit</button>
+        <div class="winner" style="display: none;"><span class="win">Player</span></div>
+    </div>
+</body>
+</html>
