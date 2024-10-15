@@ -348,5 +348,7 @@ quit.addEventListener("click",()=>{
     Boardvisible.style.display="none"
     player1.score=0
     player2.score=0
+    resetGame()
+    document.querySelector("#score").textContent ="0-0"
     begin.style.display="flex"
 })
