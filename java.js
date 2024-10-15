@@ -1,9 +1,9 @@
 let board = ["", "", "", "", "", "", "", "", ""];
 let gameMode;
 let difficultyLevel = "";
-let player1 = { name: "", marker: "?", score: 0 }; 
-let player2 = { name: "", marker: "?", score: 0 }; 
-
+let player1 = { name: "", marker: "?", score: 0 ,pions:[],piecesOnBoard:0}; 
+let player2 = { name: "", marker: "?", score: 0 ,pions:[],piecesOnBoard:0}; 
+let positionNotUsable="";
 const aiButton = document.querySelector(".playAi");
 const friendButton = document.querySelector(".playFriend");
 const begin = document.querySelector(".begin");
@@ -278,12 +278,12 @@ function adjustBoardSize() {
 
 adjustBoardSize();
 
+
 subCell.forEach(el => {
     el.addEventListener("click", () => {
-        if (el.classList.contains("use")) return;
-
         let markerClass;
         let player;
+        
 
         if (gamer1.classList.contains("active")) {
             markerClass = player1.marker;
@@ -292,17 +292,52 @@ subCell.forEach(el => {
             markerClass = player2.marker;
             player = player2;
         }
+    
+        if (el.classList.contains("use") && player.pions.includes(parseInt(el.id))) {
+            
+            if (player.piecesOnBoard === 3) {
+                
+                if (player.pions.includes(parseInt(el.id))) {
+                    console.log("yo2")
+                    const span = el.querySelector(`.${markerClass}`);
+                    if (span) {
+                        span.classList.remove("active"); 
+                    }
+                    player.pions = player.pions.filter(pion => pion !== parseInt(el.id));
+                    board[parseInt(el.id)] = ""; 
+                    positionNotUsable = parseInt(el.id); 
+                    el.classList.remove("use"); 
+                    player.piecesOnBoard--; 
+                    return; 
+                }
+            } else {
+                return; 
+            }
+        }
+        
+        if (positionNotUsable === parseInt(el.id)) return;
+        if (player.piecesOnBoard === 3)return;
+        console.log("yo")
+        if (!el.classList.contains("use")) {
+            const span = el.querySelector(`.${markerClass}`);
+            if (span) {
+                span.classList.add("active"); 
+            }
 
-        const span = el.querySelector(`.${markerClass}`);
-        if (span) {
-            span.classList.add("active");
+            el.classList.add("use");
+            const position = parseInt(el.id);
+            positionNotUsable = "";
+            player.piecesOnBoard++;
+            player.pions.push(position)
+            console.log(player.name,player.piecesOnBoard,player.pions)
+            playerTurn(player, position); 
+            
         }
 
-        el.classList.add("use");
-        const position = parseInt(el.id);
-        playerTurn(player, position);
+        
     });
 });
+
 
 winner.addEventListener("click", () => {
     winner.style.display = "none";
