@@ -263,6 +263,10 @@ function resetGame() {
         });
         el.classList.remove("use");
     });
+    player1.pions=[];
+    player2.pions=[];
+    player1.piecesOnBoard="";
+    player2.piecesOnBoard="";
     startGame();
 }
 
