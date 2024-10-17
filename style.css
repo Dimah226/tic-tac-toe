@@ -16,18 +16,7 @@
     list-style: none;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 /* Body and Global Styles */
 @media screen and (max-width: 768px) {
 
@@ -40,6 +29,19 @@ body {
     width: 100%;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
 /* Marker Styles */
 .markers {
     display: flex;
@@ -389,6 +391,7 @@ select:valid ~ span {
 
 }
 
+@media screen and (min-width: 769px) {
 
 .begin{
     display: none;
@@ -401,4 +404,5 @@ body {
     background: url('./404_page-not-found-1024x576.webp');
     background-size: cover; 
     background-position: center; 
+}
 }
