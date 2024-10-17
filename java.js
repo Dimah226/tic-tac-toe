@@ -302,7 +302,6 @@ subCell.forEach(el => {
             if (player.piecesOnBoard === 3) {
                 
                 if (player.pions.includes(parseInt(el.id))) {
-                    console.log("yo2")
                     const span = el.querySelector(`.${markerClass}`);
                     if (span) {
                         span.classList.remove("active"); 
@@ -321,7 +320,6 @@ subCell.forEach(el => {
         
         if (positionNotUsable === parseInt(el.id)) return;
         if (player.piecesOnBoard === 3)return;
-        console.log("yo")
         if (!el.classList.contains("use")) {
             const span = el.querySelector(`.${markerClass}`);
             if (span) {
@@ -333,7 +331,6 @@ subCell.forEach(el => {
             positionNotUsable = "";
             player.piecesOnBoard++;
             player.pions.push(position)
-            console.log(player.name,player.piecesOnBoard,player.pions)
             playerTurn(player, position); 
             
         }

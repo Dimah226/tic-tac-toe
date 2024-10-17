@@ -388,3 +388,17 @@ select:valid ~ span {
 }
 
 }
+
+
+.begin{
+    display: none;
+}
+
+body {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background: url('./404_page-not-found-1024x576.webp');
+    background-size: cover; 
+    background-position: center; 
+}
